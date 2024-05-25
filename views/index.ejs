@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Vale do Refúgio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Vale do Refúgio Hotel</h1>
+        <ul>
+            <li><a href="/">Clientes</a></li>
+            <li><a href="/equipe">Equipe</a></li>
+            <li><a href="/quartos">Quartos</a></li>
+            <li><a href="/logout" style="color: rgb(129, 37, 45);">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="principal-wrapper">
+      <div class="formulario-wrapper">
+          <form action="/createCliente" method="POST">
+              <div class="mb-5">
+                  <label for="nome" class="formulario-label">Nome Completo</label>
+                  <input
+                      type="text"
+                      name="nome"
+                      id="nome"
+                      placeholder="Nome Completo"
+                      class="formulario-input"
+                      required
+                  />
+              </div>
+              <div class="mb-5">
+                  <label for="cpf" class="formulario-label">CPF</label>
+                  <input
+                      type="text"
+                      name="cpf"
+                      id="cpf"
+                      placeholder="Digite seu CPF"
+                      class="formulario-input"
+                      required
+                  />
+              </div>
+              <div class="mb-5">
+                  <label for="telefone" class="formulario-label">Número de Telefone</label>
+                  <input
+                      type="text"
+                      name="telefone"
+                      id="telefone"
+                      placeholder="Digite seu número de telefone"
+                      class="formulario-input"
+                      required
+                  />
+              </div>
+              <div class="mb-5">
+                  <label for="email" class="formulario-label">Endereço de Email</label>
+                  <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Digite seu email"
+                      class="formulario-input"
+                      required
+                  />
+              </div>
+              <div class="mb-5 pt-3">
+                  <label class="formulario-label formulario-label-2">Detalhes do Endereço</label>
+                  <div class="flex flex-wrap mx-3">
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <input
+                                  type="text"
+                                  name="rua"
+                                  id="rua"
+                                  placeholder="Digite a rua"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <input
+                                  type="text"
+                                  name="numero"
+                                  id="numero"
+                                  placeholder="Digite o número"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <input
+                                  type="text"
+                                  name="bairro"
+                                  id="bairro"
+                                  placeholder="Digite o bairro"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <input
+                                  type="text"
+                                  name="cidade"
+                                  id="cidade"
+                                  placeholder="Digite a cidade"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <input
+                                  type="text"
+                                  name="estado"
+                                  id="estado"
+                                  placeholder="Digite o estado"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <input
+                                  type="text"
+                                  name="cep"
+                                  id="cep"
+                                  placeholder="CEP"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="mb-5 pt-3">
+                  <label class="formulario-label">Histórico de Reservas</label>
+                  <div class="flex flex-wrap mx-3">
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <label for="data_checkin" class="formulario-label">Data de Check-in</label>
+                              <input
+                                  type="date"
+                                  name="data_checkin"
+                                  id="data_checkin"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <label for="data_checkout" class="formulario-label">Data de Check-out</label>
+                              <input
+                                  type="date"
+                                  name="data_checkout"
+                                  id="data_checkout"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                          <div class="mb-5">
+                              <label for="preco_por_dia" class="formulario-label">Preço por Dia (BRL)</label>
+                              <input
+                                  type="number"
+                                  name="preco_por_dia"
+                                  id="preco_por_dia"
+                                  placeholder="Digite o preço por dia"
+                                  class="formulario-input"
+                                  required
+                              />
+                          </div>
+                      </div>
+                      <div class="w-full sm:w-half px-3">
+                        <div class="mb-5">
+                        <label class="formulario-label">Quartos</label>
+                        <button class="formulario-inputb" onclick="abrirQuartos()">Selecionar Quarto</button>
+                    </div>
+                    </div>
+                  </div>
+              </div>
+              <div>
+                  <button class="botao">Cadastrar Cliente</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+    
+
+    <div class="cartoes">
+      <% if (clientes.length > 0) { %>
+        <% clientes.forEach(cliente => { %>
+          <div class="cartao">
+            <div class="cartao-corpo">
+              <h3 class="card-nome">Nome: <span><%= cliente.nome %></span></h3>
+              <h4 class="card-cpf">CPF: <span><%= cliente.cpf %></span></h4>
+              <p class="card-email">Email: <span><%= cliente.email %></span></p>
+              <p class="card-telefone">Telefone: <span><%= cliente.telefone %></span></p>
+              <% if (cliente.endereco) { %>
+                <div class="card-endereco">
+                  <p>Endereço:</p>
+                  <p>Rua: <span><%= cliente.endereco.rua %></span>, Número: <span><%= cliente.endereco.numero %></span></p>
+                  <p>Bairro: <span><%= cliente.endereco.bairro %></span></p>
+                  <p>Cidade: <span><%= cliente.endereco.cidade %></span>, Estado: <span><%= cliente.endereco.estado %></span></p>
+                  <p>CEP: <span><%= cliente.endereco.cep %></span></p>
+                </div>
+              <% } else { %>
+                <p>Endereço não fornecido.</p>
+              <% } %>
+              <div class="card-historico">
+                <p>Histórico de Reservas:</p>
+                <ul>
+                  <% cliente.historico_reservas.forEach(reserva => { %>
+                    <li>
+                      Check-in: <span class="data-checkin"><%= new Date(reserva.data_checkin).toLocaleDateString() %></span>, 
+                      Check-out: <span class="data-checkout"><%= new Date(reserva.data_checkout).toLocaleDateString() %></span>, 
+                      Preço: <span class="preco"><%= reserva.preco %></span> BRL
+                    </li>
+                  <% }) %>
+                </ul>
+              </div>
+            </div>
+            <div class="card-botoes">
+              <a href="/clientes/edit/<%= cliente._id %>" class="botao-alterar">Alterar</a>
+              <a href="/clientes/delete/<%= cliente._id %>" class="botao-excluir" onclick="return confirm('Confirma a exclusão do registro?')">Encerrar</a>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>Não há usuários cadastrados.</p>
+      <% } %>
+    </div>
+    
+    
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

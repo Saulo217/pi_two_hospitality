@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quartos - Hotel Vale do Refúgio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Vale do Refúgio Hotel</h1>
+        <ul>
+            <li><a href="/">Clientes</a></li>
+            <li><a href="/equipe">Equipe</a></li>
+            <li><a href="/quartos">Quartos</a></li>
+            <li><a href="/logout" style="color: rgb(129, 37, 45);">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="containers">
+        <h2>Quartos</h2>
+        <button class="btn-primary" style="margin-bottom: 20px;">Cadastrar</button>
+        <label class="available-text">Ver apenas quartos <span class="available-status">disponíveis</span></label>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Camas</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Sonho Rural</td>
+                <td>Suíte</td>
+                <td>02</td>
+                <td>Premium</td>
+                <td>Ocupado</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>Recanto</td>
+                <td>S/ Suíte</td>
+                <td>02</td>
+                <td>Simples</td>
+                <td>Ocupado</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>Tucano</td>
+                <td>Suíte</td>
+                <td>04</td>
+                <td>Premium</td>
+                <td>Ocupado</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Onça Pintada</td>
+                <td>Suíte</td>
+                <td>03</td>
+                <td>Simples</td>
+                <td>Disponível</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>Arara</td>
+                <td>S/ Suíte</td>
+                <td>03</td>
+                <td>Simples</td>
+                <td>Disponível</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>Boto</td>
+                <td>S/ Suíte</td>
+                <td>2</td>
+                <td>Premium</td>
+                <td>Disponível</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

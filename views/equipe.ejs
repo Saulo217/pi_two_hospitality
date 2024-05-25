@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe - Hotel Vale do Refúgio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Vale do Refúgio Hotel</h1>
+        <ul>
+            <li><a href="/">Clientes</a></li>
+            <li><a href="/equipe">Equipe</a></li>
+            <li><a href="/quartos">Quartos</a></li>
+            <li><a href="/logout" style="color: rgb(129, 37, 45);">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Equipe</h2>
+        <button class="btn-primary" style="margin-bottom: 20px;">Cadastrar</button>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Dia Pagamento</th>
+                <th>Encargo</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Lucas Barros</td>
+                <td>Cozinheiro</td>
+                <td>01</td>
+                <td>Cozinha</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Janaina Leite</td>
+                <td>Recepcionista</td>
+                <td>01</td>
+                <td>Recepciona</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>Maurici Silva</td>
+                <td>Faxineiro</td>
+                <td>01</td>
+                <td>Faxina</td>
+                <td><button class="btn-edit">✏️</button></td>
+                <td><button class="btn-remove">🗑️</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
