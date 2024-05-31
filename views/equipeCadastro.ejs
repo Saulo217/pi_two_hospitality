@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="formulario">
+            <div class="topo">
+                <h1> Cadastrar membro da equipe </h1>
+            </div>
+
+            <div class="body">
+                <form action="/equipe/novo" method="post">
+                     <ul>
+                        <li>
+                            <label for="">Nome: </label>
+                            <input type="text" name="nome" id="name" placeholder="Digite o nome" required>
+                        </li>
+                        <li>
+                            <label for="">Função: </label>
+                            <input type="text" name="funcao" id="funcao" placeholder="Digite a função" required>
+                        </li>
+                        
+                        <li>
+                            <label for="">Pagamento: </label>
+                            <input type="text" name="pagamento" id="pagamento" placeholder="Digite o dia do Pagamento" required>
+                        </li>
+                        
+                        <li>
+                            <label for="">Encargo: </label>
+                            <input type="text" name="encargo" id="encargo" placeholder="Digite o encargo" required>
+                        </li>
+                        
+                        
+                     </ul>
+
+                <input type="submit" value="Cadastrar">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

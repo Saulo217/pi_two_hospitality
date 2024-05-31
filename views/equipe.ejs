@@ -19,7 +19,10 @@
 
     <div class="container">
         <h2>Equipe</h2>
-        <button class="btn-primary" style="margin-bottom: 20px;">Cadastrar</button>
+        <a href="/equipe/cadastro">
+            <button class="btn-primary" style="margin-bottom: 20px;">Cadastrar</button>
+        </a>
+        
         <table>
             <tr>
                 <th>ID</th>
@@ -30,33 +33,21 @@
                 <th>Editar</th>
                 <th>Remover</th>
             </tr>
+            <% equipe.forEach(equipe =>{ %>
+
+            
             <tr>
                 <td>01</td>
-                <td>Lucas Barros</td>
-                <td>Cozinheiro</td>
-                <td>01</td>
-                <td>Cozinha</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
+                <td><%= equipe.nome %></td>
+                <td><%= equipe.funcao %></td>
+                <td><%= equipe.pagamento %></td>
+                <td><%= equipe.encargo %></td>
+                <td><a href="/equipe/editar/<%= equipe._id %>"><button class="btn-edit">✏️</button></a></td>
+                <td><a href="/equipe/deletar/<%= equipe._id %>"><button class="btn-remove">🗑️</button></a></td>
             </tr>
-            <tr>
-                <td>02</td>
-                <td>Janaina Leite</td>
-                <td>Recepcionista</td>
-                <td>01</td>
-                <td>Recepciona</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
-            <tr>
-                <td>03</td>
-                <td>Maurici Silva</td>
-                <td>Faxineiro</td>
-                <td>01</td>
-                <td>Faxina</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
+
+           <% }) %>
+ 
         </table>
     </div>
 

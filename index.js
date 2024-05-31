@@ -2,10 +2,11 @@
 import express from "express"; 
 import mongoose from "mongoose";
 import session from "express-session";
-import { renderEquipePage } from "./controllers/equipeController.js";
 import { renderIndexPage } from "./controllers/indexController.js";
 import { renderQuartosPage } from "./controllers/quartosController.js";
 import Auth from "./middleware/Auth.js";
+import equipeController from "./controllers/equipeController.js"
+
 
 const app = express(); 
 
@@ -26,11 +27,15 @@ mongoose.connect("mongodb://127.0.0.1:27017/loja");
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+
+app.use("/", equipeController)
+
+
+
 app.use("/", UsersController)
 
 app.get("/", Auth, renderIndexPage);
 
-app.get("/equipe", Auth, renderEquipePage);
 app.post('/createCliente', createCliente); // Rota para lidar com a criação de um novo cliente
 
 app.get("/quartos", Auth, renderQuartosPage);
