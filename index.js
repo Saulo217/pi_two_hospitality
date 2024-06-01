@@ -16,7 +16,8 @@ app.use(session({
     saveUninitialized : false,
     resave: false
 }));
-import { createCliente } from './controllers/indexController.js';
+import { createCliente, deleteCliente, editClientePage, updateClienteForm } from './controllers/indexController.js';
+
 import UsersController from "./controllers/UsersController.js"
 
 app.use(express.urlencoded({extended: false}));
@@ -37,6 +38,10 @@ app.use("/", UsersController)
 app.get("/", Auth, renderIndexPage);
 
 app.post('/createCliente', createCliente); // Rota para lidar com a criação de um novo cliente
+app.get('/delete/:id', deleteCliente);// rota de exlusao
+app.get('/edit/:id', editClientePage); // Rota para a página de edição
+app.post('/update/:id', updateClienteForm); // Rota para processar o formulário de atualização
+
 
 app.get("/quartos", Auth, renderQuartosPage);
 

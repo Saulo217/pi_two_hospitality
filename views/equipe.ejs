@@ -40,7 +40,7 @@
                 <td>01</td>
                 <td><%= equipe.nome %></td>
                 <td><%= equipe.funcao %></td>
-                <td><%= equipe.pagamento %></td>
+                <td><%= new Date(equipe.pagamento).toLocaleDateString() %></td>
                 <td><%= equipe.encargo %></td>
                 <td><a href="/equipe/editar/<%= equipe._id %>"><button class="btn-edit">✏️</button></a></td>
                 <td><a href="/equipe/deletar/<%= equipe._id %>"><button class="btn-remove">🗑️</button></a></td>
