@@ -26,7 +26,7 @@
                         
                         <li>
                             <label for="">Pagamento: </label>
-                            <input type="text" name="pagamento" id="pagamento" placeholder="Digite o dia do Pagamento" value="<%= equipe.pagamento %>" required>
+                            <input type="text" name="pagamento" id="pagamento" placeholder="Digite o dia do Pagamento" value="<%= new Date(esquipe.pagamento).toLocaleDateString() %>" required>
                         </li>
                         
                         <li>
