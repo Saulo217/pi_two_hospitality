@@ -23,7 +23,7 @@ import UsersController from "./controllers/UsersController.js"
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/loja");
+mongoose.connect("mongodb://127.0.0.1:27017/ValeDoRefugio");
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
