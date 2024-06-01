@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edite quarto</title>
+</head>
+<body>
+    <h1>Edite quarto</h1>
+    <form action="/quartos/update/<%= quartos._id %>" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="<%= quartos.nome %>" required><br>
+        
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" value="<%= quartos.tipo %>" required><br>
+        
+        <label for="camas">Camas:</label>
+        <input type="number" id="camas" name="camas" value="<%= quartos.camas %>" required><br>
+        
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" value="<%= quartos.categoria %>" required><br>
+        
+        <label for="statuss">Status:</label>
+        <select id="statuss" name="statuss" required>
+            <option value="">Selecione o status</option>
+            <option value="Disponível" <%= quartos.statuss === 'Disponível' ? 'selected' : '' %>>Disponível</option>
+            <option value="Ocupado" <%= quartos.statuss === 'Ocupado' ? 'selected' : '' %>>Ocupado</option>
+            <option value="Manutenção" <%= quartos.statuss === 'Manutenção' ? 'selected' : '' %>>Manutenção</option>
+        </select><br>
+    
+        <input type="hidden" name="id" value="<%= quartos.id %>">
+        <button type="submit">Alterar</button>
+    </form>
+    
+</body>
+</html>
