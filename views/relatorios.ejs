@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios de Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+        }
+        .container-relatorio{
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-top: 20px;
+            align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 80vh;
+    width: 100%;
+    gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(2, 1fr); 
+  
+
+        }
+        .menu-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .btnn{
+        border: #838383;
+        }
+        .conteudo-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .conteudo-dropdown .dropdown-ano {
+            display: none;
+            position: absolute;
+            left: 160px;
+            top: 0;
+        }
+        .conteudo-dropdown .dropdown-ano .dropdown-mes {
+            display: none;
+            position: absolute;
+            min-height: 30px;
+            min-width: 40px;
+            left: 160px;
+            top: 0;
+        }
+        .menu-dropdown:hover .conteudo-dropdown,
+        .conteudo-dropdown:hover,
+        .conteudo-dropdown:focus-within {
+            display: block;
+        }
+        .conteudo-dropdown .ano:hover .dropdown-ano,
+        .dropdown-ano:hover,
+        .dropdown-ano:focus-within {
+            display: block;
+        }
+        .conteudo-dropdown .ano.active .dropdown-ano,
+        .conteudo-dropdown .ano.active:hover .dropdown-ano {
+            display: block;
+        }
+        .conteudo-dropdown button {
+            background-color: #f9f9f9;
+            border: none;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .container-grafico{
+            height: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.103);
+            border-radius: 10px;
+        }
+        .conteudo-dropdown button:hover {
+            background-color: #f1f1f1;
+        }
+        .conteudo-dropdown .ano.active > button {
+            background-color: #dcdcdc;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <%- include('partial/navbar.ejs') %>
+    <h1>Relatórios de Hotel</h1>
+    <div class="menu-dropdown">
+        <button class="ano-btn btnn">Selecionar Período</button>
+        <div class="conteudo-dropdown">
+            <div class="ano">
+                <button onclick="gerarRelatorioAnual(2023)" class="ano-btn">2023</button>
+                <div class="dropdown-ano">
+                    <button class="mes" onclick="gerarRelatorios('Janeiro', 2023)">Janeiro</button>
+                    <button class="mes" onclick="gerarRelatorios('Fevereiro', 2023)">Fevereiro</button>
+                    <button class="mes" onclick="gerarRelatorios('Março', 2023)">Março</button>
+                    <button class="mes" onclick="gerarRelatorios('Abril', 2023)">Abril</button>
+                    <button class="mes" onclick="gerarRelatorios('Maio', 2023)">Maio</button>
+                    <button class="mes" onclick="gerarRelatorios('Junho', 2023)">Junho</button>
+                    <button class="mes" onclick="gerarRelatorios('Julho', 2023)">Julho</button>
+                    <button class="mes" onclick="gerarRelatorios('Agosto', 2023)">Agosto</button>
+                    <button class="mes" onclick="gerarRelatorios('Setembro', 2023)">Setembro</button>
+                    <button class="mes" onclick="gerarRelatorios('Outubro', 2023)">Outubro</button>
+                    <button class="mes" onclick="gerarRelatorios('Novembro', 2023)">Novembro</button>
+                    <button class="mes" onclick="gerarRelatorios('Dezembro', 2023)">Dezembro</button>
+                </div>
+            </div>
+            <div class="ano">
+                <button onclick="gerarRelatorioAnual(2024)" class="ano-btn">2024</button>
+                <div class="dropdown-ano">
+                    <button class="mes" onclick="gerarRelatorios('Janeiro', 2024)">Janeiro</button>
+                    <button class="mes" onclick="gerarRelatorios('Fevereiro', 2024)">Fevereiro</button>
+                    <button class="mes" onclick="gerarRelatorios('Março', 2024)">Março</button>
+                    <button class="mes" onclick="gerarRelatorios('Abril', 2024)">Abril</button>
+                    <button class="mes" onclick="gerarRelatorios('Maio', 2024)">Maio</button>
+                    <button class="mes" onclick="gerarRelatorios('Junho', 2024)">Junho</button>
+                    <button class="mes" onclick="gerarRelatorios('Julho', 2024)">Julho</button>
+                    <button class="mes" onclick="gerarRelatorios('Agosto', 2024)">Agosto</button>
+                    <button class="mes" onclick="gerarRelatorios('Setembro', 2024)">Setembro</button>
+                    <button class="mes" onclick="gerarRelatorios('Outubro', 2024)">Outubro</button>
+                    <button class="mes" onclick="gerarRelatorios('Novembro', 2024)">Novembro</button>
+                    <button class="mes" onclick="gerarRelatorios('Dezembro', 2024)">Dezembro</button>
+                </div>
+            </div>
+            <div class="ano">
+                <button onclick="gerarRelatorioAnual(2025)" class="ano-btn">2025</button>
+                <div class="dropdown-ano">
+                    <button class="mes" onclick="gerarRelatorios('Janeiro', 2025)">Janeiro</button>
+                    <button class="mes" onclick="gerarRelatorios('Fevereiro', 2025)">Fevereiro</button>
+                    <button class="mes" onclick="gerarRelatorios('Março', 2025)">Março</button>
+                    <button class="mes" onclick="gerarRelatorios('Abril', 2025)">Abril</button>
+                    <button class="mes" onclick="gerarRelatorios('Maio', 2025)">Maio</button>
+                    <button class="mes" onclick="gerarRelatorios('Junho', 2025)">Junho</button>
+                    <button class="mes" onclick="gerarRelatorios('Julho', 2025)">Julho</button>
+                    <button class="mes" onclick="gerarRelatorios('Agosto', 2025)">Agosto</button>
+                    <button class="mes" onclick="gerarRelatorios('Setembro', 2025)">Setembro</button>
+                    <button class="mes" onclick="gerarRelatorios('Outubro', 2025)">Outubro</button>
+                    <button class="mes" onclick="gerarRelatorios('Novembro', 2025)">Novembro</button>
+                    <button class="mes" onclick="gerarRelatorios('Dezembro', 2025)">Dezembro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containerg">
+    <div class="container-relatorio">
+        <div class="container-grafico">
+            <canvas id="graficoQuartosOcupados"></canvas>
+        </div>
+        <div class="container-grafico">
+            <canvas id="graficoQuartosManutencao"></canvas>
+        </div>
+        <div class="container-grafico">
+            <canvas id="graficoQuartosDisponiveis"></canvas>
+        </div>
+        <div class="container-grafico">
+            <canvas id="graficoClientes"></canvas>
+        </div>
+        <div class="container-grafico">
+            <canvas id="graficoFinanceiro"></canvas>
+        </div>
+        <div class="container-grafico">
+            <canvas id="graficoGastos"></canvas>
+        </div>
+    </div>
+</div>
+    <script>
+        
+        document.querySelectorAll('.ano-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.ano-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+        let anoSelecionado = 2024;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            gerarRelatorioAnual(anoSelecionado);
+        });
+        
+        function gerarDadosAleatorios(numPontos, min, max) {
+            return Array.from({ length: numPontos }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+        }
+
+        function gerarRelatorioAnual(ano) {
+            const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            const labels = meses;
+
+            const dadosQuartosOcupados = gerarDadosAleatorios(12, 600, 2400);
+            const dadosQuartosManutencao = gerarDadosAleatorios(12, 0, 300);
+            const dadosQuartosDisponiveis = gerarDadosAleatorios(12, 300, 2100);
+            const dadosClientes = gerarDadosAleatorios(12, 300, 2400);
+            const dadosFinanceiro = gerarDadosAleatorios(12, 300000, 1500000);
+            const dadosGastos = gerarDadosAleatorios(12, 150000, 600000);
+
+            atualizarGrafico(graficoQuartosOcupados, `Quartos Ocupados em ${ano}`, labels, dadosQuartosOcupados);
+            atualizarGrafico(graficoQuartosManutencao, `Quartos em Manutenção em ${ano}`, labels, dadosQuartosManutencao);
+            atualizarGrafico(graficoQuartosDisponiveis, `Quartos Disponíveis em ${ano}`, labels, dadosQuartosDisponiveis);
+            atualizarGrafico(graficoClientes, `Clientes Hospedados em ${ano}`, labels, dadosClientes);
+            atualizarGrafico(graficoFinanceiro, `Caixa Financeiro em ${ano}`, labels, dadosFinanceiro);
+            atualizarGrafico(graficoGastos, `Gastos em ${ano}`, labels, dadosGastos);
+        }
+
+        function gerarRelatorios(mes, ano) {
+            const diasNoMes = 30; 
+            const labels = Array.from({ length: diasNoMes }, (_, i) => `Dia ${i + 1}`);
+
+            const dadosQuartosOcupados = gerarDadosAleatorios(diasNoMes, 20, 80);
+            const dadosQuartosManutencao = gerarDadosAleatorios(diasNoMes, 0, 10);
+            const dadosQuartosDisponiveis = gerarDadosAleatorios(diasNoMes, 10, 70);
+            const dadosClientes = gerarDadosAleatorios(diasNoMes, 10, 80);
+            const dadosFinanceiro = gerarDadosAleatorios(diasNoMes, 10000, 50000);
+            const dadosGastos = gerarDadosAleatorios(diasNoMes, 5000, 20000);
+
+            atualizarGrafico(graficoQuartosOcupados, `Quartos Ocupados em ${mes} ${ano}`, labels, dadosQuartosOcupados);
+            atualizarGrafico(graficoQuartosManutencao, `Quartos em Manutenção em ${mes} ${ano}`, labels, dadosQuartosManutencao);
+            atualizarGrafico(graficoQuartosDisponiveis, `Quartos Disponíveis em ${mes} ${ano}`, labels, dadosQuartosDisponiveis);
+            atualizarGrafico(graficoClientes, `Clientes Hospedados em ${mes} ${ano}`, labels, dadosClientes);
+            atualizarGrafico(graficoFinanceiro, `Caixa Financeiro em ${mes} ${ano}`, labels, dadosFinanceiro);
+            atualizarGrafico(graficoGastos, `Gastos em ${mes} ${ano}`, labels, dadosGastos);
+        }
+
+        function atualizarGrafico(grafico, rotulo, labels, dados) {
+            grafico.data.labels = labels;
+            grafico.data.datasets[0].label = rotulo;
+            grafico.data.datasets[0].data = dados;
+            grafico.update();
+        }
+
+        function criarGrafico(ctx, rotulo, dadosIniciais, corBorda, corFundo) {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 30 }, (_, i) => `Dia ${i + 1}`), 
+                    datasets: [{
+                        label: rotulo,
+                        data: dadosIniciais,
+                        borderColor: corBorda,
+                        backgroundColor: corFundo,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        const dadosIniciais = gerarDadosAleatorios(30, 0, 100);
+        const graficoQuartosOcupados = criarGrafico(document.getElementById('graficoQuartosOcupados').getContext('2d'), 'Quartos Ocupados', dadosIniciais, 'rgb(255, 99, 132)', 'rgba(255, 99, 132, 0.2)');
+        const graficoQuartosManutencao = criarGrafico(document.getElementById('graficoQuartosManutencao').getContext('2d'), 'Quartos em Manutenção', dadosIniciais, 'rgb(54, 162, 235)', 'rgba(54, 162, 235, 0.2)');
+        const graficoQuartosDisponiveis = criarGrafico(document.getElementById('graficoQuartosDisponiveis').getContext('2d'), 'Quartos Disponíveis', dadosIniciais, 'rgb(75, 192, 192)', 'rgba(75, 192, 192, 0.2)');
+        const graficoClientes = criarGrafico(document.getElementById('graficoClientes').getContext('2d'), 'Clientes Hospedados', dadosIniciais, 'rgb(153, 102, 255)', 'rgba(153, 102, 255, 0.2)');
+        const graficoFinanceiro = criarGrafico(document.getElementById('graficoFinanceiro').getContext('2d'), 'Caixa Financeiro', dadosIniciais, 'rgb(255, 206, 86)', 'rgba(255, 206, 86, 0.2)');
+        const graficoGastos = criarGrafico(document.getElementById('graficoGastos').getContext('2d'), 'Gastos', dadosIniciais, 'rgb(75, 192, 192)', 'rgba(75, 192, 192, 0.2)');
+
+        document.querySelectorAll('.container-grafico').forEach(container => {
+    const canvas = container.querySelector('canvas');
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+});
+    </script>
+</body>
+</html>

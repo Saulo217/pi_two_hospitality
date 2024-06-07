@@ -8,17 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <img src="imagens/logo.valedorefugio.png" alt="Vale do Refúgio Hotel">
-        <ul>
-            <li><a href="/"><i class="fas fa-users"></i> Clientes</a></li>
-            <li><a href="/equipe"><i class="fas fa-users-cog"></i> Equipe</a></li>
-            <li><a href="/quartos"><i class="fas fa-bed"></i> Quartos</a></li>
-            <li><a href="/relatorios"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
-            <li><a href="/logout" style="color: #ffffff;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
-
+    <%- include('partial/navbar.ejs') %>
     <div class="container">
         <h2>Equipe</h2>
         <a href="/equipe/cadastro">

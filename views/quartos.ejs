@@ -5,102 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quartos - Hotel Vale do Refúgio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
-    <div class="navbar">
-        <img src="imagens/logo.valedorefugio.png" alt="Vale do Refúgio Hotel">
-        <ul>
-            <li><a href="/"><i class="fas fa-users"></i> Clientes</a></li>
-            <li><a href="/equipe"><i class="fas fa-users-cog"></i> Equipe</a></li>
-            <li><a href="/quartos"><i class="fas fa-bed"></i> Quartos</a></li>
-            <li><a href="/relatorios"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
-            <li><a href="/logout" style="color: #ffffff;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
+    <%- include('partial/navbar.ejs') %>
 
     <div class="containers">
         <h2>Quartos</h2>
-        <a href="/quartos/cadastro"><button class="btn-primary" style="margin-bottom: 20px">Cadastrar</button></a>
+        <a href="/quarto/cadastro" class="btn-primary" style="margin-bottom: 20px;">Cadastrar</a>
         <label class="available-text">Ver apenas quartos <span class="available-status">disponíveis</span></label>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="filterAvailable" onclick="filterAvailableRooms()">
             <span class="slider round"></span>
         </label>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Tipo</th>
-                <th>Camas</th>
-                <th>Categoria</th>
-                <th>Status</th>
-                <th>Editar</th>
-                <th>Remover</th>
-            </tr>
-            <tr>
-                <td>01</td>
-                <td>Sonho Rural</td>
-                <td>Suíte</td>
-                <td>02</td>
-                <td>Premium</td>
-                <td>Ocupado</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
-            <tr>
-                <td>04</td>
-                <td>Recanto</td>
-                <td>S/ Suíte</td>
-                <td>02</td>
-                <td>Simples</td>
-                <td>Ocupado</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
-            <tr>
-                <td>06</td>
-                <td>Tucano</td>
-                <td>Suíte</td>
-                <td>04</td>
-                <td>Premium</td>
-                <td>Ocupado</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
-            <tr>
-                <td>02</td>
-                <td>Onça Pintada</td>
-                <td>Suíte</td>
-                <td>03</td>
-                <td>Simples</td>
-                <td>Disponível</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
-            <tr>
-                <td>03</td>
-                <td>Arara</td>
-                <td>S/ Suíte</td>
-                <td>03</td>
-                <td>Simples</td>
-                <td>Disponível</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
-            <tr>
-                <td>05</td>
-                <td>Boto</td>
-                <td>S/ Suíte</td>
-                <td>2</td>
-                <td>Premium</td>
-                <td>Disponível</td>
-                <td><button class="btn-edit">✏️</button></td>
-                <td><button class="btn-remove">🗑️</button></td>
-            </tr>
+        <table id="roomsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Camas</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let idCounter = 1; %>
+                <% quartos.forEach(quarto => { %>
+                <tr class="roomRow" data-status="<%= quarto.statuss %>">
+                    <td><%= idCounter++ %></td>
+                    <td><%= quarto.nome %></td>
+                    <td><%= quarto.tipo %></td>
+                    <td><%= quarto.camas %></td>
+                    <td><%= quarto.categoria %></td>
+                    <td><%= quarto.statuss %></td>
+                    <td><a href="/quartos/edit/<%= quarto._id %>"><button class="btn-edit">✏️</button></a></td>
+                    <td><a href="/quartos/delete/<%= quarto._id %>"><button class="btn-remove">🗑️</button></a></td>
+                </tr>
+                <% }) %>
+            </tbody>
         </table>
     </div>
+    
+    <script>
+    function filterAvailableRooms() {
+        const checkbox = document.getElementById('filterAvailable');
+        const rows = document.querySelectorAll('.roomRow');
+    
+        rows.forEach(row => {
+            if (checkbox.checked) {
+                if (row.getAttribute('data-status') === 'Disponível') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
+    </script>
+    
 
-
+    <script src="scripts.js"></script>
 </body>
 </html>
