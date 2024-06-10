@@ -5,21 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equipe - Hotel Vale do Refúgio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <h1>Vale do Refúgio Hotel</h1>
-        <ul>
-            <li><a href="/">Clientes</a></li>
-            <li><a href="/equipe">Equipe</a></li>
-            <li><a href="/quartos">Quartos</a></li>
-            <li><a href="/logout" style="color: rgb(129, 37, 45);">Logout</a></li>
-        </ul>
-    </div>
-
+    <%- include('partial/navbar.ejs') %>
     <div class="container">
-        <h2>Equipe</h2>
-        <a href="/equipe/cadastro">
+        <h2 id="equipe">Equipe</h2>
+        <a>
             <button class="btn-primary" style="margin-bottom: 20px;">Cadastrar</button>
         </a>
         
@@ -50,7 +42,38 @@
  
         </table>
     </div>
-
+    <dialog id="modal-equipe">
+        <div class="principal-wrapper">
+            <div class="formulario-wrapper">
+                <form action="/equipe/novo" method="POST">
+                    <div class="mb-5">
+                        <label for="nome" class="formulario-label">Nome:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite o nome"
+                            class="formulario-input" required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="funcao" class="formulario-label">Função:</label>
+                        <input type="text" name="funcao" id="funcao" placeholder="Digite a função"
+                            class="formulario-input" required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="pagamento" class="formulario-label">Pagamento:</label>
+                        <input type="text" name="pagamento" id="pagamento" placeholder="Digite o dia do Pagamento"
+                            class="formulario-input" required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="encargo" class="formulario-label">Encargo:</label>
+                        <input type="text" name="encargo" id="encargo" placeholder="Digite o encargo"
+                            class="formulario-input" required />
+                    </div>
+                    <div>
+                        <button class="botao">Cadastrar Membro</button>
+                        <button class="botao-cancel">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <script src="scripts.js"></script>
 </body>
 </html>

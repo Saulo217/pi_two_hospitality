@@ -5,18 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Vale do Refúgio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <h1>Vale do Refúgio Hotel</h1>
-        <ul>
-            <li><a href="/">Clientes</a></li>
-            <li><a href="/equipe">Equipe</a></li>
-            <li><a href="/quartos">Quartos</a></li>
-            <li><a href="/logout" style="color: rgb(129, 37, 45);">Logout</a></li>
-        </ul>
-    </div>
-
+    <%- include('partial/navbar.ejs') %>
     <div class="principal-wrapper">
       <div class="formulario-wrapper">
           <form action="/createCliente" method="POST">
@@ -232,8 +224,8 @@
               </div>
             </div>
             <div class="card-botoes">
-              <a href="/edit/<%= cliente._id %>" class="botao-alterar">Alterar</a>
-              <a href="/delete/<%= cliente._id %>" class="botao-excluir" onclick="return confirm('Confirma a exclusão do registro?')">Encerrar</a>
+                <a href="/edit/<%= cliente._id %>" class="botao-alterar">Alterar</a>
+                <a href="/clientes/delete/<%= cliente._id %>" class="botao-excluir" onclick="return confirm('Confirma a exclusão do registro?')">Encerrar</a>
             </div>
           </div>
         <% }) %>

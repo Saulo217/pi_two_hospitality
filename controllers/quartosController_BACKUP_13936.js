@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+// controllers/quartosController.js
+export const renderQuartosPage = (req, res) => {
+    res.render("quartos");
+};
+=======
 import express from "express"
 const router = express.Router()
 import quartosService from "../services/quartosService.js"
@@ -54,3 +60,4 @@ router.post("/quartos/new", Auth, (req, res) => {
     res.redirect("/quartos")
   })
 export default router
+>>>>>>> main

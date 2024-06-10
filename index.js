@@ -3,10 +3,9 @@ import express from "express";
 import mongoose from "mongoose";
 import session from "express-session";
 import { renderIndexPage } from "./controllers/indexController.js";
-import { renderQuartosPage } from "./controllers/quartosController.js";
 import Auth from "./middleware/Auth.js";
 import equipeController from "./controllers/equipeController.js"
-
+import quartosController from "./controllers/quartosController.js"
 
 const app = express(); 
 
@@ -30,7 +29,7 @@ app.use(express.static('public'));
 
 
 app.use("/", equipeController)
-
+app.use("/", quartosController)
 
 
 app.use("/", UsersController)
@@ -41,9 +40,9 @@ app.post('/createCliente', createCliente); // Rota para lidar com a criação de
 app.get('/delete/:id', deleteCliente);// rota de exlusao
 app.get('/edit/:id', editClientePage); // Rota para a página de edição
 app.post('/update/:id', updateClienteForm); // Rota para processar o formulário de atualização
+app.get('/relatorios', (req, res) => {res.render('relatorios');});
+app.get('/relatorios', (req, res) => {res.render('relatorios');});
 
-
-app.get("/quartos", Auth, renderQuartosPage);
 
 app.get("/", Auth, function(req,res){
     res.render("index")
