@@ -9,10 +9,13 @@
             <i class="fas fa-solid fa-language"></i>
             <a href="#" class="dropbtn">Linguagem</a>
             <div class="dropdown-content">
-                <a href="#" onclick="changeLanguage('pt')" class="droptext"><img src="./imagens/pt-br.png" alt="Português">Português</a>
-                <a href="#" onclick="changeLanguage('en')"><img src="./imagens/en.png" alt="English">English</a>
+                <a href="#" onclick="changeLanguage('pt', '<%- route -%>')" class="droptext"><img
+                        src="./imagens/pt-br.png" alt="Português">Português</a>
+                <a href="#" onclick="changeLanguage('en', '<%- route -%>')"><img src="./imagens/en.png"
+                        alt="English">English</a>
             </div>
         </li>
         <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </div>
+<script defer src="/translate.js"></script>
