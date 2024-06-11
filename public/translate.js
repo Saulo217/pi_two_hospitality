@@ -26,6 +26,31 @@ function equipe(ths, labels, placeholders, buttons) {
     }
 }
 
+function quartos() {
+    for (i = 0; i < ths.length; i++) {
+        document.querySelectorAll("th")[i].innerText = ths[i];
+    }
+    for (i = 0; i < labels.length; i++) {
+        document.querySelectorAll("label")[i].innerText = labels[i];
+    }
+    for (i = 0; i < placeholders.length; i++) {
+        document.querySelectorAll("input")[i].setAttribute("placeholder", placeholders[i]);
+    }
+    for (i = 0; i < buttons.length; i++) {
+        document.querySelectorAll("button")[i].innerText = buttons[i];
+    }
+    for (i = 0; i < buttons.length; i++) {
+        document.querySelectorAll("options")[i].innerText = buttons[i];
+    }
+
+}
+
+function relatorios() {
+    for (i = 0; i < buttons.length; i++) {
+        document.querySelectorAll("button.mes")[i].innerText = buttons[i];
+    }
+}
+
 const pt = {
     equipe: function () {
         equipe(
