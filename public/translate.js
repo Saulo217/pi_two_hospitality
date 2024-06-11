@@ -45,13 +45,33 @@ function quartos() {
 
 }
 
-function relatorios() {
+function relatorio() {
     for (i = 0; i < buttons.length; i++) {
         document.querySelectorAll("button.mes")[i].innerText = buttons[i];
     }
 }
 
 const pt = {
+    relatorio: () => {
+        relatorio(
+            [
+                "Janeiro", "Fevereiro", "Março",
+                "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro",
+                "Outubro", "Novembro", "Dezembro",
+
+                "Janeiro", "Fevereiro", "Março",
+                "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro",
+                "Outubro", "Novembro", "Dezembro",
+
+                "Janeiro", "Fevereiro", "Março",
+                "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro",
+                "Outubro", "Novembro", "Dezembro"
+            ]
+        )
+    },
     equipe: function () {
         equipe(
             [
@@ -94,6 +114,28 @@ const pt = {
 }
 
 const en = {
+    relatorio: () => {
+        relatorio(
+            [
+                [
+                    "January", "February", "March",
+                    "April", "May", "June",
+                    "July", "August", "September",
+                    "October", "November", "December",
+    
+                    "January", "February", "March",
+                    "April", "May", "June",
+                    "July", "August", "September",
+                    "October", "November", "December",
+    
+                    "January", "February", "March",
+                    "April", "May", "June",
+                    "July", "August", "September",
+                    "October", "November", "December"
+                ]
+            ]
+        )
+    },
     equipe: () => {
         equipe(
             [
